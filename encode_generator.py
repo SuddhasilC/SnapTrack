@@ -2,6 +2,19 @@ import cv2
 import face_recognition
 import pickle
 import os
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import db
+from firebase_admin import storage
+
+dbURL=''
+sbURL=''
+
+cred = credentials.Certificate("../Key/serviceAccountKey.json")
+firebase_admin.initialize_app(cred,{
+    'databaseURL': dbURL,
+    'storageBucket': sbURL
+})
 
 #Importing Attendee Images and corrosponding IDs
 folderPath= 'Attendee_Image_DB'
@@ -11,6 +24,10 @@ idList=[]
 for path in pathList:
     imgList.append(cv2.imread(os.path.join(folderPath,path)))
     idList.append(path.split('.')[0])
+    fileName=f'{folderPath}/{path}'
+    bucket=storage.bucket()
+    blob=bucket.blob(fileName)
+    blob.upload_from_filename(fileName)
 
 #Encoding Generator
 def findEncodings(imgList): 
