@@ -17,15 +17,15 @@ data={
     {
         "Name":"JRL",
         "Major":"CSE",
-        "Total Attendance":"5",
-        "Last Attented Date":"2024-02-11 13:11:45"
+        "Total Attendance":5,
+        "Last Attended Date":"2024-02-11 13:11:45"
     },
     "20CS8049":
     {
         "Name":"SC",
         "Major":"CSE",
-        "Total Attendance":"6",
-        "Last Attented Date":"2024-02-11 13:07:55"
+        "Total Attendance":6,
+        "Last Attended Date":"2024-02-11 13:07:55"
     }
 }
 
